@@ -1,18 +1,20 @@
-<footer id="layout-footer">
-  <div>
+<footer>
+  <div id="company-name">
     <p>&#169; VG company All Rights Reserved</p>
   </div>
 
-  <div>
-    <nav class="footer-nav">
-      <ul>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/users/profile">Profile</a>
-        </li>
-      </ul>
-    </nav>
+  <div id="links">
+    <% if(locals.user) { %>
+    <a href="/users/profile/<%= user.id %>">Profile</a>
+    <a href="/">Home</a>
+    <% } %>
+  </div>
+
+  <div id="contact-info">
+    CONTACT
+    <div id="contact-details">
+      <div>gargvishesh9@gmail.com</div>
+      <div>9915420824</div>
+    </div>
   </div>
 </footer>

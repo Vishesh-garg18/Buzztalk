@@ -13,11 +13,14 @@
     <%- style %>
   </head>
   <body>
-    <%- include('_header'); %>
+    <div id="" header><%- include('_header'); %></div>
 
-    <main id="layout-main"><%- body %></main>
+    <div class="minus-header">
+      <main id="main-body"><%- body %></main>
+      <%- include('_footer'); %>
+    </div>
 
-    <%- include('_footer'); %> <%- script %>
+    <%- script %>
 
     <script>
       <% if (flash.success && flash.success.length>0) { %>

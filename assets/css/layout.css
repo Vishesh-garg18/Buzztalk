@@ -1,6 +1,20 @@
 body {
   margin: 0;
-}
-#layout-main {
   height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #020024 0%, #322cf8 49%, #985cf9 100%);
+  color: white;
+  position: relative;
+}
+.minus-header {
+  position: relative;
+  top: 50px;
+}
+#main-body {
+  margin: 0;
+  position: relative;
+  min-height: 100%;
+  height: fit-content;
+  margin-bottom: 20px;
+  padding-left: 0;
 }

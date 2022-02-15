@@ -1,27 +1,37 @@
-<li>
-  <p>
-    <% if (locals.user && locals.user.id == post.user.id) { %>
-    <small>
-      <a href="/posts/destroy/<%= post.id %>">X</a>
-    </small>
-    <% } %> <%= post.content %>
-    <br />
+<link rel="stylesheet" href="/css/_post.css" />
 
-    <small> <%= post.user.name %> </small>
-  </p>
-  <div class="" post-comments>
+<div class="posts-display" id="post-<%= post._id %>">
+  <h3><%= post.user.name %></h3>
+  <p class="post-content"><%= post.content %></p>
+
+  <div class="post-btns">
+    <button class="comments-btn" post-id="<%= post.id %>">Comments</button>
+    <% if (locals.user && locals.user.id == post.user.id) { %>
+
+    <a class="delete-post-btn-link" href="/posts/destroy/<%= post.id %>">
+      <button class="delete-post-btn">Delete</button>
+    </a>
+    <% } %>
+  </div>
+
+  <div class="post-comments" id="comment-section-<%= post.id %>">
     <% if(locals.user){ %>
-    <form action="/comments/create" method="POST">
+    <form
+      action="/comments/create"
+      method="POST"
+      class="comment-form comment-form-preloaded"
+      id="post-<%= post.id %>-comment-form"
+    >
       <input type="text" name="content" placeholder="Type Here" required />
       <input type="hidden" name="post" value="<%= post._id %>" />
-      <input type="submit" name="Add Comment" />
+      <input type="submit" name="Add Comment" class="post-comment-btn" />
     </form>
     <% } %>
 
-    <div class="'post-comments-list">
+    <div class="'post-comments-list" id="post-comments-wrapper-<%= post.id %>">
       <ul id="'post-comments-<%= post._id %>">
         <% for(comment of post.comments) {%> <%- include('_comment') -%> <%} %>
       </ul>
     </div>
   </div>
-</li>
+</div>
