@@ -30,8 +30,14 @@
   </form>
 
   <%}else{%>
+  <h3 id="user-name"><%= profile_user.name%></h3>
+  <h3 id="user-email"><%= profile_user.email%></h3>
 
-  <p id="user-name">Name: <%= profile_user.name %></p>
-  <p id="user-email">Email: <%= profile_user.email %></p>
+  <a href="/friends/toggle/?userID=<%=profile_user.id%>" id="friend-toggle">
+    <button id="friend-toggle-button">
+      <% if (isFriend) {%> <%= "Remove Friend" %> <% } else {%> <%= "Add Friend"
+      %> <% } %>
+    </button>
+  </a>
   <%} %>
 </main>

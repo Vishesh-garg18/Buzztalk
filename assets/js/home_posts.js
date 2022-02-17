@@ -35,6 +35,10 @@
     <p class="post-content">${post.content}</p>
   
     <div class="post-btns">
+
+    <a href="/likes/toggle/?id=${post._id}&type=Post" class="like-btn-link" data-likes="${post.likes.length}">
+                <button class='like-post-btn' ><span id="like-count-${post._id}-Post">${post.likes.length}</span> &nbsp <i class="fas fa-heart"></i></button>
+            </a>
       <button class="comments-btn" post-id="${post._id}">Comments</button>
       <% if (locals.user && locals.user.id == post.user.id) { %>
   

@@ -2,13 +2,41 @@ const User = require("../models/user");
 const fs = require("fs");
 const path = require("path");
 
-module.exports.profile = function (req, res) {
-  User.findById(req.params.id, function (err, user) {
+module.exports.profile = async function (req, res) {
+  try {
+    let myUser = await User.findById(req.params.id);
+
+    if (req.user) {
+      usersFriendships = await User.findById(req.user._id).populate({
+        path: "friendships",
+        options: { sort: { createdAt: -1 } },
+        populate: {
+          path: "from_user to_user",
+        },
+      });
+    }
+    let isFriend = false;
+    for (Friendships of usersFriendships.friendships) {
+      if (
+        Friendships.from_user.id == myUser.id ||
+        Friendships.to_user.id == myUser.id
+      ) {
+        isFriend = true;
+        break;
+      }
+    }
+
     return res.render("user_profile", {
-      title: "User Profile",
-      profile_user: user,
+      title: "PROFILE",
+      heading: "PROFILE PAGE",
+      profile_user: myUser,
+      myUser: usersFriendships,
+      isFriend: isFriend,
     });
-  });
+  } catch (err) {
+    console.log(err);
+    return;
+  }
 };
 
 module.exports.update = async function (req, res) {

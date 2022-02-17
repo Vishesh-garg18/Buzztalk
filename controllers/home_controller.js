@@ -21,11 +21,23 @@ module.exports.home = async function (req, res) {
       });
 
     let users = await User.find({});
+    let usersFriendships;
+
+    if (req.user) {
+      usersFriendships = await User.findById(req.user._id).populate({
+        path: "friendships",
+        options: { sort: { createdAt: -1 } },
+        populate: {
+          path: "from_user to_user",
+        },
+      });
+    }
 
     return res.render("home", {
       title: "Codeial | Home",
       posts: posts,
       all_users: users,
+      myUser: usersFriendships,
     });
   } catch (err) {
     console.log("Error", err);
