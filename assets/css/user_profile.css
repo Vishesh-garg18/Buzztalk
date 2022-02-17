@@ -4,10 +4,62 @@ main {
 }
 #page-heading {
   font-size: 2rem;
-  color: white;
+  color: rgb(112, 106, 106);
 }
 #user-name,
 #user-email {
   font-size: 1.5rem;
   color: whitesmoke;
+  text-align: center;
+}
+#update-details {
+  margin-left: 50;
+  margin-top: 100;
+}
+.uploaded-img {
+  display: block;
+  height: 190px;
+  width: 180px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px;
+  border-radius: 1000px;
+  border-color: black;
+}
+#update-form {
+  margin-left: 50;
+}
+#users_name,
+#users_email {
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  padding: 8px;
+  margin: 10;
+}
+.submit {
+  padding: 5px;
+  background: linear-gradient(90deg, #020024 0%, #322cf8 49%, #985cf9 100%);
+  color: white;
+}
+.submit:hover {
+  cursor: pointer;
+}
+#friend-toggle {
+  text-decoration: none;
+}
+#friend-toggle-button {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10;
+  font-size: 15;
+  border-color: #020024;
+  border-radius: 20px;
+  margin-top: 50;
+  background: linear-gradient(90deg, #020024 0%, #322cf8 49%, #985cf9 100%);
+  color: white;
+}
+#friend-toggle-button:hover {
+  cursor: pointer;
 }

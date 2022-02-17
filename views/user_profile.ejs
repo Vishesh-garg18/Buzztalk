@@ -1,10 +1,20 @@
 <link rel="stylesheet" href="/css/user_profile.css" />
 
 <main>
-  <img src="<%= user.avatar %>" alt="<%= user.name %>" width="100" />
-
   <% if(locals.user && locals.user.id == profile_user.id){ %>
+
+  <img
+    class="uploaded-img"
+    src="<%= profile_user.avatar %>"
+    alt="<%= profile_user.name %>"
+    width="100"
+  />
+
+  <h3 id="user-name">Name : <%= profile_user.name%></h3>
+  <h3 id="user-email">Email : <%= profile_user.email%></h3>
+  <h4 id="update-details">Update Details</h4>
   <form
+    id="update-form"
     action="/users/update/<%= profile_user.id %>"
     enctype="multipart/form-data"
     method="POST"
@@ -25,15 +35,29 @@
       value="<%= profile_user.email %>"
       required
     />
-    <input type="file" name="avatar" placeholder="Profile picture" />
-    <input type="submit" value="Update" />
+    <input
+      type="file"
+      class="submit"
+      name="avatar"
+      placeholder="Profile picture"
+    />
+    <input type="submit" class="submit" value="Update" />
   </form>
 
   <%}else{%>
-  <h3 id="user-name"><%= profile_user.name%></h3>
-  <h3 id="user-email"><%= profile_user.email%></h3>
+
+  <img
+    class="uploaded-img"
+    src="<%= profile_user.avatar %>"
+    alt="<%= profile_user.name %>"
+    width="100"
+  />
+
+  <h3 id="user-name">Name : <%= profile_user.name%></h3>
+  <h3 id="user-email">Email : <%= profile_user.email%></h3>
 
   <a href="/friends/toggle/?userID=<%=profile_user.id%>" id="friend-toggle">
+    <h4></h4>
     <button id="friend-toggle-button">
       <% if (isFriend) {%> <%= "Remove Friend" %> <% } else {%> <%= "Add Friend"
       %> <% } %>

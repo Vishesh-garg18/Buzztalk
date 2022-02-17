@@ -1,0 +1,117 @@
+.chat-box-wrapper {
+  position: fixed;
+  bottom: 1px;
+  right: 10px;
+  border: 1px solid black;
+  height: 320px;
+  width: 250px;
+  background: rgba(1, 23, 37, 0.933);
+  padding: 5px;
+  box-shadow: 1px 1px 1px 1px rgb(0, 0, 0);
+  transition: height 1s ease-in-out;
+  border-radius: 25px;
+}
+.chat-box-header {
+  display: flex;
+  flex-direction: row;
+  height: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.chat-box-title {
+  color: white;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 16px;
+  align-items: center;
+  font-weight: bold;
+  margin-left: 10;
+}
+.chat-size-button {
+  color: white;
+}
+.chat-size-button:hover {
+  cursor: pointer;
+}
+#user-chat-box {
+  transition: height 1s ease-in-out;
+}
+.chat-messages-list {
+  list-style: none;
+  padding: 5px;
+  height: 72%;
+  overflow-y: auto;
+}
+.other-message {
+  text-align: left;
+  padding: 3px;
+}
+.other-message span {
+  border-radius: 5px;
+  display: inline-block;
+  padding: 3px 15px;
+  font-size: 13px;
+  background: linear-gradient(90deg, #020024 0%, #322cf8 49%, #985cf9 100%);
+}
+.user-mail {
+  color: white;
+  font-size: 50px;
+}
+.self-message {
+  text-align: right;
+  padding: 3px;
+}
+.self-message span {
+  display: inline-block;
+  padding: 3px 15px;
+
+  border-radius: 5px;
+  font-size: 13px;
+  background: linear-gradient(90deg, #020024 0%, #322cf8 49%, #985cf9 100%);
+}
+.user-mail {
+  display: none;
+}
+#chat-message-input-container {
+  height: 20%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border-radius: 25px;
+  justify-content: space-between;
+}
+
+#chat-message-input {
+  width: 72%;
+  height: 50%;
+  border-radius: 25px;
+  outline: none;
+}
+
+#chat-message-input:active {
+  border: none;
+  outline: none;
+}
+#send-message {
+  border-radius: 25px;
+  height: 50%;
+  width: 25%;
+  color: white;
+  background: linear-gradient(90deg, #020024 0%, #322cf8 49%, #985cf9 100%);
+  font-size: 20px;
+  border: none;
+  outline: none;
+}
+
+#send-message:hover {
+  cursor: pointer;
+}
+
+#send-message:active {
+  border: none;
+  outline: solid white 1px;
+}
+
+.minimised-ht {
+  height: 30px;
+  overflow: hidden;
+}

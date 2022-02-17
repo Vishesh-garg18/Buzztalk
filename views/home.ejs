@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="/css/home.css" />
+<link rel="stylesheet" href="/css/_chatbox.css" />
+
 <main>
   <div id="main-components-wrapper">
     <section id="feed-posts">
@@ -40,15 +42,10 @@
           >
         </p>
         <%}%> <%}%>
-        <!-- <% for(u of all_users) {%>
-        <p>
-          <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
-        </p>
-        <% } %> -->
       </section>
       <% } %>
       <section class="users-list">
-        <h2>ALL USER</h2>
+        <h2>ALL USERS</h2>
 
         <% for( u of all_users) {%>
         <p>
@@ -57,6 +54,16 @@
         <%}%>
       </section>
     </div>
+    <%- include('_chatbox') -%>
   </div>
 </main>
 <script src="/js/home_posts.js"></script>
+<script src="/js/home_posts_comments.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+<script src="/js/chat_engine.js"></script>
+
+<%if(locals.user) {%>
+<script>
+  new chatEngine("user-chat-box", "<%= locals.user.email %>");
+</script>
+<%}%>
