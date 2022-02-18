@@ -54,7 +54,8 @@
 }
 .user-mail {
   color: white;
-  font-size: 50px;
+  margin-top: 8;
+  font-size: 9px;
 }
 .self-message {
   text-align: right;
@@ -68,9 +69,7 @@
   font-size: 13px;
   background: linear-gradient(90deg, #020024 0%, #322cf8 49%, #985cf9 100%);
 }
-.user-mail {
-  display: none;
-}
+
 #chat-message-input-container {
   height: 20%;
   width: 100%;

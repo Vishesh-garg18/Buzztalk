@@ -1,6 +1,8 @@
 const express = require("express");
+const env = require("./config/environment");
 const app = express();
 const port = 8000;
+const logger = require("morgan");
 const cookieParser = require("cookie-parser");
 const expressLayouts = require("express-ejs-layouts");
 const db = require("./config/mongoose");
@@ -12,13 +14,14 @@ const passportGoogle = require("./config/passport-local-oauth2-strategy");
 const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const customMware = require("./config/middleware");
+const path = require("path");
 
 app.use(express.urlencoded());
 app.use(cookieParser());
-app.use(express.static("./assets"));
+app.use(express.static(env.asset_path));
 app.use("/uploads", express.static(__dirname + "/uploads"));
 app.use(expressLayouts);
-
+app.use(logger(env.morgan.mode, env.morgan.options));
 app.set("layout extractStyles", true);
 app.set("layout extractScripts", true);
 
@@ -28,7 +31,7 @@ app.set("views", "./views");
 app.use(
   session({
     name: "codial",
-    secret: "blahsomething",
+    secret: env.session_cookie_key,
     saveUninitialized: false,
     resave: false,
     cookie: {

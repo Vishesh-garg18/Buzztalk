@@ -22,11 +22,11 @@ class chatEngine {
     }
 
     return $(`
-        <li class="${messageType}">
-        <span>${msg}</span>
-            <div class="user-mail">${senderMail}</div>
-        </li>
-        `);
+      <li class="${messageType}">
+          <span>${msg}</span>
+          <div class="user-mail">${senderMail}</div>
+      </li>
+      `);
   }
 
   connectionHandler() {
@@ -58,7 +58,7 @@ class chatEngine {
       });
 
       self.socket.on("receive_message", function (data) {
-        console.log("message received !", data.msg);
+        console.log("message recved !", data.msg);
         let messagePill = self.createMessagePill(data);
         $(".chat-messages-list").append(messagePill);
       });
