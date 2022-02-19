@@ -16,7 +16,7 @@ const flash = require("connect-flash");
 const customMware = require("./config/middleware");
 const path = require("path");
 
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended:false}));
 app.use(cookieParser());
 app.use(express.static(env.asset_path));
 app.use("/uploads", express.static(__dirname + "/uploads"));
