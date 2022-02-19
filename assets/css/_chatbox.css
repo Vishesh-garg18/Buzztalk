@@ -9,7 +9,7 @@
   padding: 5px;
   box-shadow: 1px 1px 1px 1px rgb(0, 0, 0);
   transition: height 1s ease-in-out;
-  border-radius: 25px;
+  border-radius: 24px;
 }
 .chat-box-header {
   display: flex;
